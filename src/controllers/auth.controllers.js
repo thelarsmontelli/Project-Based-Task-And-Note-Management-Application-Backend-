@@ -29,13 +29,12 @@ const registerUser = async (req, res) => {
       });
     }
 
-   const hashedPassword = bcrypt.hash(password, 12)
 
     const user = await User.create({
       username,
       role: role || "member",
       email,
-      password: hashedPassword,
+      password,
     });
 
     // console.log("token 1st Phase CRYPTO - ", token);
